@@ -9,6 +9,10 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    
+    var AIreloadChance = 100
+    var AIshootChance = 0
+    var AImove = "r"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +25,17 @@ class GameViewController: UIViewController {
     
     func startRound() {
         view.backgroundColor = UIColor.greenColor()
+    }
+    
+    func daDaSetUp() {
+        let chance = Int(arc4random_uniform(100))
+        if chance < AIreloadChance {
+            AImove = "r"
+        } else if chance < AIshootChance {
+            AImove = "s"
+        } else {
+            AImove = "i"
+        }
     }
 
     @IBAction func onTappedReloadButton(sender: UIButton) {
