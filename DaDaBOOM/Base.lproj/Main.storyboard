@@ -56,32 +56,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="aKi-nf-2IU">
-                                <rect key="frame" x="170" y="455" width="260" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGS-sg-Kqt">
-                                        <rect key="frame" x="0.0" y="0.0" width="47" height="30"/>
-                                        <state key="normal" title="Reload"/>
-                                        <connections>
-                                            <action selector="onTappedReloadButton:" destination="hjB-UE-aKM" eventType="touchUpInside" id="vYa-uo-DzQ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJ8-aB-Ewr">
-                                        <rect key="frame" x="112" y="0.0" width="43" height="30"/>
-                                        <state key="normal" title="Shield"/>
-                                        <connections>
-                                            <action selector="onTappedShieldButton:" destination="hjB-UE-aKM" eventType="touchUpInside" id="4Kc-hR-J1G"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEm-58-yiI">
-                                        <rect key="frame" x="219" y="0.0" width="41" height="30"/>
-                                        <state key="normal" title="Shoot"/>
-                                        <connections>
-                                            <action selector="onTappedShootButton:" destination="hjB-UE-aKM" eventType="touchUpInside" id="a2S-Ex-Zej"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="E0G-Sq-BcF">
                                 <rect key="frame" x="60" y="121" width="480" height="178"/>
                                 <subviews>
@@ -96,15 +70,66 @@
                                     <constraint firstAttribute="width" secondItem="E0G-Sq-BcF" secondAttribute="height" multiplier="240:89" id="BhW-1S-Y5a"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="aKi-nf-2IU">
+                                <rect key="frame" x="175" y="459" width="250" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGS-sg-Kqt">
+                                        <rect key="frame" x="0.0" y="0.0" width="47" height="30"/>
+                                        <state key="normal" title="Reload"/>
+                                        <connections>
+                                            <action selector="onTappedReloadButton:" destination="hjB-UE-aKM" eventType="touchUpInside" id="vYa-uo-DzQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJ8-aB-Ewr">
+                                        <rect key="frame" x="107" y="0.0" width="43" height="30"/>
+                                        <state key="normal" title="Shield"/>
+                                        <connections>
+                                            <action selector="onTappedShieldButton:" destination="hjB-UE-aKM" eventType="touchUpInside" id="4Kc-hR-J1G"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEm-58-yiI">
+                                        <rect key="frame" x="209" y="0.0" width="41" height="30"/>
+                                        <state key="normal" title="Shoot"/>
+                                        <connections>
+                                            <action selector="onTappedShootButton:" destination="hjB-UE-aKM" eventType="touchUpInside" id="a2S-Ex-Zej"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="NM2-zG-Mrf"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVc-wt-acQ">
+                                <rect key="frame" x="111" y="559" width="32" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shots Left:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYC-FH-i3n">
+                                <rect key="frame" x="20" y="559" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="aKi-nf-2IU" secondAttribute="trailing" constant="150" id="JGe-in-XpE"/>
+                            <constraint firstItem="Inh-0a-6ra" firstAttribute="top" secondItem="pVc-wt-acQ" secondAttribute="bottom" constant="20" id="Dyt-Tx-d6k"/>
+                            <constraint firstItem="pVc-wt-acQ" firstAttribute="leading" secondItem="kYC-FH-i3n" secondAttribute="trailing" constant="8" id="KNI-l0-pcY"/>
                             <constraint firstItem="E0G-Sq-BcF" firstAttribute="leading" secondItem="UJ9-rt-qLU" secondAttribute="leadingMargin" constant="40" id="f4Q-EW-8Ub"/>
-                            <constraint firstItem="aKi-nf-2IU" firstAttribute="leading" secondItem="UJ9-rt-qLU" secondAttribute="leadingMargin" constant="150" id="iim-mX-mdR"/>
+                            <constraint firstItem="Inh-0a-6ra" firstAttribute="top" secondItem="kYC-FH-i3n" secondAttribute="bottom" constant="20" id="gOf-bS-lVv"/>
+                            <constraint firstItem="Inh-0a-6ra" firstAttribute="top" secondItem="aKi-nf-2IU" secondAttribute="bottom" constant="111" id="gnC-UD-on6"/>
+                            <constraint firstItem="kYC-FH-i3n" firstAttribute="leading" secondItem="UJ9-rt-qLU" secondAttribute="leadingMargin" id="mwa-P7-Q6Q"/>
+                            <constraint firstItem="aKi-nf-2IU" firstAttribute="centerX" secondItem="UJ9-rt-qLU" secondAttribute="centerX" id="uWW-Ie-2YN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="E0G-Sq-BcF" secondAttribute="trailing" constant="40" id="y7z-6L-qsM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="hands" destination="E0G-Sq-BcF" id="H35-Jm-Qqa"/>
+                        <outlet property="leftHand" destination="zAi-dY-JHY" id="QwW-sv-fId"/>
+                        <outlet property="rightHand" destination="ZDT-V3-JYd" id="i0n-nx-A5e"/>
+                        <outlet property="shotsLeftLabel" destination="pVc-wt-acQ" id="cOF-ct-7Uu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AbU-4i-0Zn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
