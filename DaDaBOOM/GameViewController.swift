@@ -30,12 +30,10 @@ class GameViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        view.backgroundColor = UIColor.redColor()
         startRound()
     }
     
     func startRound() {
-        view.backgroundColor = UIColor.greenColor()
         daDaSetUp()
     }
     
@@ -54,9 +52,10 @@ class GameViewController: UIViewController {
     }
     
     func daDaSetUp() {
+        print(hands.center.y)
         rightHand.image = UIImage(named: "rightSetupHand")
         leftHand.image = UIImage(named: "leftSetupHand")
-        UIView.animateWithDuration(0.2, animations: { 
+        UIView.animateWithDuration(0.2, animations: {
             self.hands.center.y += 75
             }) { (finished) in
                 UIView.animateWithDuration(0.2, animations: { 
@@ -75,6 +74,21 @@ class GameViewController: UIViewController {
         }
     }
     
+    func handImageShower() {
+        switch AImove {
+        case "r":
+            rightHand.image = UIImage(named: "rightReloadHand")
+            leftHand.image = UIImage(named: "leftReloadHand")
+        case "s":
+            rightHand.image = UIImage(named: "rightShootHand")
+            leftHand.image = UIImage(named: "leftShootHand")
+        case "i":
+            rightHand.image = UIImage(named: "rightShieldHand")
+            leftHand.image = UIImage(named: "leftShieldHand")
+        default: break
+        }
+        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(GameViewController.comparator), userInfo: nil, repeats: false)
+    }
     func comparator() {
         if AImove == yourMove {
             if yourMove == "s" {
@@ -113,14 +127,14 @@ class GameViewController: UIViewController {
             //The label changing numbers is somehow causing the hands to glitch upwards
             shotsLeft += 1
             shotsLeftLabel.text = String(shotsLeft)
-            comparator()
+            handImageShower()
         }
     }
     @IBAction func onTappedShieldButton(sender: UIButton) {
         if yourTurn {
             yourTurn = false
             yourMove = "i"
-            comparator()
+            handImageShower()
         }
     }
     @IBAction func onTappedShootButton(sender: UIButton) {
@@ -133,7 +147,7 @@ class GameViewController: UIViewController {
             } else {
                 yourMove = "r"
             }
-            comparator()
+            handImageShower()
         }
     }
   
