@@ -93,6 +93,8 @@ class GameViewController: UIViewController {
         if AImove == yourMove {
             if yourMove == "s" {
                 print("tie" + " AI: \(AImove) You: \(yourMove)")
+                rightHand.image = UIImage(named: "rightStalemateHand")
+                leftHand.image = UIImage(named: "leftStalemateHand")
             } else {
                 print("nothing happens" + " AI: \(AImove) You: \(yourMove)")
                 AIchanceAdjustor()
@@ -104,8 +106,12 @@ class GameViewController: UIViewController {
             daDaSetUp()
         } else if AImove == "r" {
             print("you win" + " AI: \(AImove) You: \(yourMove)")
+            rightHand.image = UIImage(named: "rightDeathHand")
+            leftHand.image = UIImage(named: "leftDeathHand")
         } else if yourMove == "r" {
             print("AI wins" + " AI: \(AImove) You: \(yourMove)")
+            rightHand.image = UIImage(named: "winHand")
+            leftHand.image = UIImage(named: "winHand")
         }
     }
     
