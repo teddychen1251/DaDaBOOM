@@ -28,7 +28,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         startRound()
     }
@@ -55,23 +55,23 @@ class GameViewController: UIViewController {
         print(hands.center.y)
         rightHand.image = UIImage(named: "rightSetupHand")
         leftHand.image = UIImage(named: "leftSetupHand")
-        UIView.animateWithDuration(0.2, animations: {
+        UIView.animate(withDuration: 0.2, animations: {
             self.hands.center.y += 75
-            }) { (finished) in
-                UIView.animateWithDuration(0.2, animations: { 
+            }, completion: { (finished) in
+                UIView.animate(withDuration: 0.2, animations: { 
                     self.hands.center.y -= 75
                     }, completion: { (finished) in
-                        UIView.animateWithDuration(0.2, animations: { 
+                        UIView.animate(withDuration: 0.2, animations: { 
                             self.hands.center.y += 75
                             }, completion: { (finished) in
-                                UIView.animateWithDuration(0.2, animations: { 
+                                UIView.animate(withDuration: 0.2, animations: { 
                                     self.hands.center.y -= 75
                                     }, completion: { (finished) in
                                         self.daDaSetUpHelper()
                                 })
                         })
                 })
-        }
+        }) 
     }
     
     func handImageShower() {
@@ -87,7 +87,7 @@ class GameViewController: UIViewController {
             leftHand.image = UIImage(named: "leftShieldHand")
         default: break
         }
-        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(GameViewController.comparator), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GameViewController.comparator), userInfo: nil, repeats: false)
     }
     func comparator() {
         if AImove == yourMove {
@@ -126,7 +126,7 @@ class GameViewController: UIViewController {
         }
     }
 
-    @IBAction func onTappedReloadButton(sender: UIButton) {
+    @IBAction func onTappedReloadButton(_ sender: UIButton) {
         if yourTurn {
             yourTurn = false
             yourMove = "r"
@@ -136,14 +136,14 @@ class GameViewController: UIViewController {
             handImageShower()
         }
     }
-    @IBAction func onTappedShieldButton(sender: UIButton) {
+    @IBAction func onTappedShieldButton(_ sender: UIButton) {
         if yourTurn {
             yourTurn = false
             yourMove = "i"
             handImageShower()
         }
     }
-    @IBAction func onTappedShootButton(sender: UIButton) {
+    @IBAction func onTappedShootButton(_ sender: UIButton) {
         if yourTurn {
             yourTurn = false
             if shotsLeft > 0 {
